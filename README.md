@@ -6,7 +6,7 @@ project ideas
 - python visualization from csv runtimes file
 - pass by value vs reference visual
 - machine learning - predict runtime of an algorithm based on data from our project
--compare large file searches vs smaller string searches
+- compare large file searches vs smaller string searches
 
 
 Tentative Outline/Schedule
