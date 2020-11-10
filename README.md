@@ -5,7 +5,7 @@ project ideas
 - chrome tracing visualization
 - python visualization from csv runtimes file
 - pass by value vs reference visual
-- machine learning - predict runtime of algorithm based on length of file/search key
+- machine learning - predict runtime of an algorithm based on data from our project
 -compare large file searches vs smaller string searches
 
 
