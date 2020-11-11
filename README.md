@@ -2,7 +2,7 @@
 
 project ideas
 
-- chrome tracing visualization
+- chrome tracing visualization - chrome://tracing/
 - python visualization from csv runtimes file
 - pass by value vs reference visual
 - machine learning - predict runtime of an algorithm based on data from our project
