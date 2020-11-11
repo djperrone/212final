@@ -1,0 +1,5 @@
+﻿  path.cpp
+C:\Users\david_perrone\Documents\URI\CSC212\Assignments\A05\GoodPath\GoodPath\src\path.cpp(108,28): warning C4834: discarding return value of function with 'nodiscard' attribute
+  main.cpp
+  Generating Code...
+  GoodPath.vcxproj -> C:\Users\david_perrone\Documents\URI\CSC212\Assignments\A05\GoodPath\bin\x64\Debug\GoodPath.exe
