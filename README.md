@@ -18,6 +18,9 @@ Rabin-Karp Algorithm (complete by 11/15)
     Date			Comments on Progress
     11/10			Completed solution to rbain-karp with limited test cases.
     		        We should figure out how to run a lot of test cases to find bugs.
+			
+    11/11                   Compared our solution to the find function built into the string class
+                            and found a bug. Fixed the bug by doing modulus in the for loop of power function
 Boyer Moore Algorithm (complete by 11/22)
     
     Date			Comments on Progress
