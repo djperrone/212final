@@ -9,6 +9,7 @@ project ideas
 - compare large file searches vs smaller string searches
 - use string class find function to compare correctness 
 - for large test cases in order to benchmark algortithm search for a word/sentence in an entire doc or book
+- find cost of search as input approaches infinity
 
 
 Tentative Outline/Schedule
@@ -20,7 +21,8 @@ Rabin-Karp Algorithm (complete by 11/15)
     		        We should figure out how to run a lot of test cases to find bugs.
 			
     11/11                   Compared our solution to the find function built into the string class
-                            and found a bug. Fixed the bug by doing modulus in the for loop of power function
+                            and found a bug. Fixed the bug by doing modulus in the for loop of power function.
+			    Update - found bug when searching large textfile - rolling hash gives false positives
 Boyer Moore Algorithm (complete by 11/22)
     
     Date			Comments on Progress
