@@ -1,6 +1,6 @@
-212 final project
+# 212 final project
 
-project ideas
+### project ideas
 
 - chrome tracing visualization - chrome://tracing/
 - python visualization from csv runtimes file
@@ -12,10 +12,10 @@ project ideas
 - find cost of search as input approaches infinity
 
 
-# Tentative Outline/Schedule
+## Tentative Outline/Schedule
 
 
-## Rabin-Karp Algorithm (complete by 11/15)
+### Rabin-Karp Algorithm (complete by 11/15)
 
 |Date|Comments|
 |---|---|
