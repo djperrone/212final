@@ -15,7 +15,7 @@ Rabin-Karp Algorithm (complete by 11/15)
     
     Date			Comments on Progress
     11/10			Completed solution to rbain-karp with limited test cases.
-    				We should figure out how to run a lot of test cases to find bugs.
+    		        We should figure out how to run a lot of test cases to find bugs.
 Boyer Moore Algorithm (complete by 11/22)
     
     Date			Comments on Progress
