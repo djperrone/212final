@@ -1,6 +1,6 @@
-# 212 final project
+# CSC 212 Final Project
 
-### project ideas
+### Project Ideas
 
 - chrome tracing visualization - chrome://tracing/
 - python visualization from csv runtimes file
