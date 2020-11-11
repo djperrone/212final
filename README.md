@@ -32,5 +32,5 @@ Project Report (complete by 12/6)
 		
     Date			Comments on Progress
     
-Class Presentation
+Class Presentation (12/9?)
 
