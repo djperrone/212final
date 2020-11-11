@@ -12,25 +12,18 @@ project ideas
 - find cost of search as input approaches infinity
 
 
-Tentative Outline/Schedule
+# Tentative Outline/Schedule
 
-Rabin-Karp Algorithm (complete by 11/15)
-    
-    Date			- Comments on Progress
-    11/10			- Completed solution to rbain-karp with limited test cases.
-    		        	- We should figure out how to run a lot of test cases to find bugs.
-			
-    11/11                   	- Compared our solution to the find function built into the string class
-                            	- and found a bug. Fixed the bug by doing modulus in the for loop of power function.
-			    	- Update - Program can now read and search each line of a large text file.
-			   	- Found bug when searching large textfile - rolling hash gives false positives
-| Date | Comments|  Time |
-| --- | --- | --- |
-|11/10 |  - Completed solution to rbain-karp with limited test cases.<br>- We should figure out how to run a lot of test cases to find bugs. |
-|11/11 | - Compared our solution to the find function built std library<br>- found a bug. Fixed the bug by doing modulus in the for loop of power function.<br>- Update - Program can now read and search each line of a large text file.<br> - Found bug when searching large textfile - rolling hash gives false positives|	 |
-|11/12 |   | 	|
-|11/13 |   |	|
-|11/14 |    |   |
+
+## Rabin-Karp Algorithm (complete by 11/15)
+
+|Date|Comments|
+|---|---|
+| 11/10|- Completed solution to rbain-karp with limited test cases.<br>- We should figure out how to run a lot of test cases to find bugs.|
+|11/11|- Compared our solution to the find function built std library<br>- found a bug. Fixed the bug by doing modulus in the for loop of power function.<br>- Update - Program can now read and search each line of a large text file.<br> - Found bug when searching large textfile - rolling hash gives false positives|
+|11/12| |
+|11/13| |
+|11/14 | |
 
 
 Boyer Moore Algorithm (complete by 11/22)
