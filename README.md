@@ -22,7 +22,8 @@ Rabin-Karp Algorithm (complete by 11/15)
 			
     11/11                   Compared our solution to the find function built into the string class
                             and found a bug. Fixed the bug by doing modulus in the for loop of power function.
-			    Update - found bug when searching large textfile - rolling hash gives false positives
+			    Update - Program can now read and search each line of a large text file.
+			    Found bug when searching large textfile - rolling hash gives false positives
 Boyer Moore Algorithm (complete by 11/22)
     
     Date			Comments on Progress
