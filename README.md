@@ -7,13 +7,11 @@
 - pass by value vs reference visual
 - machine learning - predict runtime of an algorithm based on data from our project
 - compare large file searches vs smaller string searches
-- use string class find function to compare correctness 
+- use standard library find function to compare correctness 
 - for large test cases in order to benchmark algortithm search for a word/sentence in an entire doc or book
 - find cost of search as input approaches infinity
 
-
 ## Tentative Outline/Schedule
-
 
 ### Rabin-Karp Algorithm (complete by 11/15)
 
