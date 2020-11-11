@@ -45,7 +45,7 @@ void rk(const std::string& text, const std::string& key)
     {
         std::string sub = text.substr(i, len);
         strHash = hash(sub, len);
-        std::cout<<"subStr "<<sub<<std::endl;
+        //std::cout<<"subStr "<<sub<<std::endl;
         if (keyHash == strHash)
         {
             std::cout << "Pattern found at index " << i << std::endl;
@@ -65,7 +65,7 @@ int main()
 
     // std::string text = "Loremipsumdolorsitametconsecteturadipiscingelitsit";
     // std::string pattern = "sit";
-    std::cout<<"length"<<text.length()<<std::endl;
+    //std::cout<<"length"<<text.length()<<std::endl;
 
     rk(text,pattern);
 }
