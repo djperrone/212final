@@ -11,6 +11,8 @@
 - Timing: https://www.youtube.com/watch?v=oEx5vGNFrLk&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=63 <br>
 - Benchmarking pt1: https://www.youtube.com/watch?v=YG4jexlSAjc&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=74 <br>
 - Benchmarking pt2(certain macros don't work with g++): https://www.youtube.com/watch?v=xlAH4dbMVnU&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=81 <br>
+
 - String Find: https://youtu.be/ijIxcB9qjaU?t=914 <br>
 - Copy Constructors/String class: https://www.youtube.com/watch?v=BvR1Pgzzr38&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=45 <br>
+
 - Tracking Memory: https://www.youtube.com/watch?v=sLlGEUO_EGE&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=84 <br>
