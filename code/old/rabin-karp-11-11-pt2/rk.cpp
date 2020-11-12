@@ -16,7 +16,7 @@ int RabinKarp::power(int base, int exponent){
 		}
 	}
 
-	poww = poww%101;
+//	poww = poww%101;
 
 	return poww;
 }
@@ -34,6 +34,7 @@ int RabinKarp::hash(const std::string& text, int len)
 
 void RabinKarp::rk(const std::string& text, const std::string& key)
 {
+    
 
     int len = key.length();
     // calculate hash value of key
