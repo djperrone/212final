@@ -19,7 +19,7 @@
 |---|---|
 | 11/10|- Completed solution to rabin-karp with limited test cases.<br>- Need to run a lot of test cases to find bugs.|
 |11/11|- Compared our solution to the std library find function and found bug<br>-Fixed the bug by doing modulus in the for loop of power function.<br>- Update - Program can now read and search each line of a large text file.<br> - Found bug when searching large textfile - rolling hash gives false positives<br>-Fixed bug by increasing q and adding inner loop to check for false-positives<br> began testing timers in rk|
-|11/12| |
+|11/12| Need to implement counter to track number of iterations as well as false positives|
 |11/13| |
 |11/14 | |
 
