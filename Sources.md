@@ -16,3 +16,6 @@
 - Copy Constructors/String class: https://www.youtube.com/watch?v=BvR1Pgzzr38&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=45 <br>
 
 - Tracking Memory: https://www.youtube.com/watch?v=sLlGEUO_EGE&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=84 <br>
+
+## Macros
+- https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros?view=msvc-160
