@@ -24,21 +24,24 @@
 |11/14 | |
 
 
-Boyer Moore Algorithm (complete by 11/22)
+### Boyer Moore Algorithm (complete by 11/22)
+|Date|Comments|
+|---|---|
+|11/11|- created a roadmap for the implemntation with a class and nessecary functions.<br> - Made substantial progress on understanding of the algorithm using an online visualization tool that steps through the algorithm for any example you type. Need more understanding of the good and bad suffix tables and preprocessing. <br> - will probably need to use a map to store the tables.
     
-    Date			Comments on Progress
+### Record runtime (complete by 11/29)
+|Date|Comments|
+|---|---|
     
-Record runtime (complete by 11/29)
-     
-     Date			Comments on Progress
+### Generate Plots(complete by 11/29)
+|Date|Comments|
+|---|---|
     
-Generate Plots(complete by 11/29)
+### Project Report (complete by 12/6)
+|Date|Comments|
+|---|---|
     
-    Date			Comments on Progress
-    
-Project Report (complete by 12/6)
-		
-    Date			Comments on Progress
-    
-Class Presentation (12/9?)
+### Class Presentation (12/9?)
+|Date|Comments|
+|---|---|
 
