@@ -5,6 +5,8 @@
 - Boye-Moore Demo: https://dwnusbaum.github.io/boyer-moore-demo/ <br>
 - Boy-Moore Slides : https://www.slideshare.net/transweb/boyre-moore-algorithm-computer-science <br>
 - Boy-Moore Research Paper: https://www.cs.utexas.edu/users/moore/publications/fstrpos.pdf <br>
+- BM good suffix reference: https://stackoverflow.com/questions/19345263/boyer-moore-good-suffix-heuristics
+- BM good suffix explanation: http://www.users.abo.fi/ipetre/textalg/Lecture_3.pdf
 
 
 ## Cherno:
