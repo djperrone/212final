@@ -3,11 +3,12 @@
 
 int main(int argc, char** argv)
 {
-    std::string text = "landbeyond.txt";
-    std::string pattern = "English";
+    std::string text = "This is a simple example.";
+    std::string pattern = "example";
 
     BoyerMoore bmSearch(text, pattern);
-   // bmSearch.ReadFile();
-   bmSearch.bm(text, pattern);
+    bmSearch.bm(text, pattern);
+
+    // bmSearch.ReadFile();
 
 }
