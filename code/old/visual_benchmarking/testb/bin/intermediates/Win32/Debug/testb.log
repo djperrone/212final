@@ -1,4 +1,0 @@
-﻿  rk.cpp
-C:\Users\david_perrone\Documents\URI\212final\code\visual_benchmarking\testb\testb\src\rk.cpp(54,23): warning C4018: '<=': signed/unsigned mismatch
-C:\Users\david_perrone\Documents\URI\212final\code\visual_benchmarking\testb\testb\src\rk.cpp(65,30): warning C4018: '<': signed/unsigned mismatch
-  testb.vcxproj -> C:\Users\david_perrone\Documents\URI\212final\code\visual_benchmarking\testb\bin\Win32\Debug\testb.exe
