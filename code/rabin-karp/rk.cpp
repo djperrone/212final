@@ -83,8 +83,6 @@ void RabinKarp::rk(const std::string& text, const std::string& key)
 
         strHash -= int(sub[0]) * power(256, len - 2);
         strHash *= 256;
-
-
     }
 }
 
@@ -99,73 +97,20 @@ void RabinKarp::stringFind(const std::string& text, const std::string& key){
     }
 }
 
-struct Timer
-{
-	
-	std::chrono::time_point<std::chrono::steady_clock> start, end;
-	std::chrono::duration<float> duration;
-
-	Timer()
-	{
-        //msvc
-		//start = std::chrono::high_resolution_clock::now();
-
-        //gcc
-	    start = std::chrono::steady_clock::now();
-        //start = std::chrono::time_point<std::chrono::steady_clock>
-
-
-	}
-	~Timer()
-	{
-        //msvc
-		end = std::chrono::steady_clock::now();
-		duration = end - start;
-
-		float ms = duration.count() * 1000.0f;
-
-		std::cout << "Cherno timing Timer took "<<ms  << "ms" << std::endl;
-
-	}
-
-};
-
 void RabinKarp::ReadFile()
 {
     
 	std::ifstream inFile;
 	inFile.open(fname);
 	std::string line;
-    double c_start,c_end;
-    // lab start
-    c_start = std::clock();
-    //euler
-    Clock::time_point tic, toc;
-    //std::chrono::duration<double> Seconds;
-    std::chrono::duration<float> duration;
-    TimerStruct timerStruct;
-    TimerClass timerClass;
-    tic = Clock::now();
+   
 	for (;std::getline(inFile, line);)
 	{
 	   // std::cout<<line<<std::endl;
 	   rk(line,key);
 	   //stringFind(line,key);
-	   lineNum ++;
-      
+	   lineNum ++;      
 	}
-    // lab end
-    c_end = std::clock();
-     float output =  (c_end - c_start) / (double)CLOCKS_PER_SEC;
-     //float output =  (c_end - c_start);
-
-    std::cout << std::fixed << std::setprecision(4) << "Time from lab file: "<<output<< std::endl;
-    // euler
-    toc = Clock::now();
-     std::cout<< std::fixed << std::setprecision(4) <<"euler demo time: "<< (double)NS(toc-tic).count()/1000000 << "ms"<< std::endl;
-
-     //cherno timing
-     //timer.~Timer();
 
 	inFile.close();
 }
