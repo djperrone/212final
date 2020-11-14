@@ -1,6 +1,0 @@
-﻿  main.cpp
-  rk.cpp
-C:\Users\david_perrone\Documents\URI\CSC212\212final\code\csvtest\csvtest\src\rk.cpp(57,23): warning C4018: '<=': signed/unsigned mismatch
-C:\Users\david_perrone\Documents\URI\CSC212\212final\code\csvtest\csvtest\src\rk.cpp(68,30): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
-  csvtest.vcxproj -> C:\Users\david_perrone\Documents\URI\CSC212\212final\code\csvtest\bin\Win32\Debug\csvtest.exe

@@ -1,0 +1,14 @@
+# download a repository
+git clone https://github.com/djperrone/212final.git
+
+# if you want to edit a repository
+git pull https://github.com/djperrone/212final.git
+
+# add any changes you have made to the repository...you can add specific folder or doc if you want
+git add .
+
+# commit changes
+git commit -m "comments on what you are adding go here"
+
+# push origins to git repository
+git push origin main
