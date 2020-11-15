@@ -1,4 +1,4 @@
-#include "rk-iterator.h"
+#include "rk.h"
 #include "timer.h"
 #include <iostream>
 #include <fstream>
@@ -43,25 +43,22 @@ int main(int argc, char** argv)
         names.push_back(line);
     }
     Timer timer;
-    Timer1 timer1;
+     timer.WriteHeader();
+
     for(auto i: names){
 
         std::cout<<i<<std::endl;
         std::string fname = i;
         std::string pattern = "English";
         RabinKarp rkSearch(fname, pattern);
-        // {
-        //     Timer1 timer1;
-        //     rkSearch.ReadFile(fname);
+        timer.SetName(fname);
 
-        // }
-        // timer.Start();
-
+        timer.Start();
 
         rkSearch.ReadFile(fname);
-        //  timer.Stop();
-        //   timer.WriteCSV();
-        //  timer.Reset();
+        timer.Stop();
+         timer.WriteCSV();
+         timer.Reset();
 
     }
 

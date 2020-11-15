@@ -1,4 +1,4 @@
-#include "rk-iterator.h"
+#include "rk.h"
 
 RabinKarp::RabinKarp(std::string filename, std::string pattern)
     :fname(filename),key(pattern) {}
