@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 #pragma once//
+=======
+//
+>>>>>>> cb218b3a77751bcaae0797331dae5c072ec3abaa
 // Basic instrumentation profiler by Cherno
 
 // Usage: include this header file somewhere in your code (eg. precompiled header), and then use like:
 //
+<<<<<<< HEAD
 // Instrumentor::Get().BeginSession("Session Name");        // Begin session
+=======
+// Instrumentor::Get().BeginSession("Session Name");        // Begin session 
+>>>>>>> cb218b3a77751bcaae0797331dae5c072ec3abaa
 // {
 //     InstrumentationTimer timer("Profiled Scope Name");   // Place code like this in scopes you'd like to include in profiling
 //     // Code
@@ -147,6 +155,10 @@ private:
 	const char* m_Name;
 	std::chrono::time_point<std::chrono::steady_clock> m_StartTimepoint;
 	bool m_Stopped;
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> cb218b3a77751bcaae0797331dae5c072ec3abaa
 };
 

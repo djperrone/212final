@@ -43,23 +43,25 @@ int main(int argc, char** argv)
         names.push_back(line);
     }
     Timer timer;
-    timer.Header();
-    //Timer1 timer1;
+    Timer1 timer1;
     for(auto i: names){
 
         std::cout<<i<<std::endl;
         std::string fname = i;
         std::string pattern = "English";
         RabinKarp rkSearch(fname, pattern);
+        // {
+        //     Timer1 timer1;
+        //     rkSearch.ReadFile(fname);
 
-        timer.Start();
+        // }
+        // timer.Start();
 
 
         rkSearch.ReadFile(fname);
-        timer.Stop();
-        timer.SetName(fname);
-        timer.WriteCSV();
-        timer.Reset();
+        //  timer.Stop();
+        //   timer.WriteCSV();
+        //  timer.Reset();
 
     }
 

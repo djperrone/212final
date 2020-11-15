@@ -1,4 +1,4 @@
-#include "rk.h"
+#include "rk-iterator.h"
 
 RabinKarp::RabinKarp(std::string filename, std::string pattern)
     :fname(filename),key(pattern) {}
@@ -48,6 +48,7 @@ void RabinKarp::rk(const std::string& text, const std::string& key)
 
     // calculate hash value of first substring to search
     int strHash = hash(text.substr(0, len),len);
+
 
 
     for (int i = 0; i <= text.length()-len; i++)
