@@ -29,6 +29,7 @@
     
 ### Record runtime RK (complete by 11/29)
 |Date|Comments|
+|---|---|
 |11/12|- Need to implement counter to track number of iterations as well as false positives<br> -visual_benchmarking folder contains modded instrumentator to benchmark g++ <br> std::high_res_clock behaves differently per compiler - use steady_clock...still dont know why vscode takes twice as long as visual studio|
 |11/14|-Created list of text files to search (8 books) timesd all 8 books and wrote times to csv file |
 |11/15 |TODO add counters to track comps and false positives, write comps/false to csv file |
