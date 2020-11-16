@@ -1,81 +1,95 @@
 #include "rk.h"
+#include "timer.h"
 
 RabinKarp::RabinKarp(std::string filename, std::string pattern)
     :fname(filename),key(pattern) {}
 
-int RabinKarp::power(int base, int exponent){
-    //PROFILE_FUNCTION();
-	int poww = 1;
-
-	if (exponent == 0){
-		return 1;
-	}
-	else{
-		for(int i = 0; i < exponent; i++){
-			poww *= base;
-			poww = poww%293;
-		}
-	}
-
-	poww = poww%293;
-
-	return poww;
+int RabinKarp::power(int base, int exponent) {
+    int poww = 1;
+    for (int i = 0; i < exponent; i++)
+    {
+        poww *= base;
+        poww %= 101;
+    }
+    return poww % 101;
 }
 
 int RabinKarp::hash(const std::string& text, int len)
 {
     //PROFILE_FUNCTION();
     int h = 0;
-    for (int i = 0; i < len; i++)
+    for (int i = 0; i < key.length(); i++)
     {
-        h += (int)text[i] * (power(256, len - 1 - i));
+        h += ((int)text[i] * power(256, key.length() - i - 1)) % 101;
 
     }
+    h %= 101;
     return h;
 }
 
-void RabinKarp::rk(const std::string& text, const std::string& key)
-{
-    //PROFILE_FUNCTION();
+void RabinKarp::rk(const std::string& text, const std::string& key, Timer& timer){
     //if the line is less than the length of the pattern we are looking for skip it
-    if (text.length() < key.length()) {
-        return;
-    }
 
-    int len = key.length();
-    // calculate hash value of key
-    int keyHash = hash(key, len);
+    //Timer timer(__func__,text,key);
+    timer.SetBookName(text);
+    std::ifstream inFile;
+	inFile.open(text);
+	std::string line;
 
-    // calculate hash value of first substring to search
-    int strHash = hash(text.substr(0, len),len);
+    timer.Start();
+	for (;std::getline(inFile, line);)
+	{
 
-
-
-    for (int i = 0; i <= text.length()-len; i++)
-    {
-
-        std::string sub = text.substr(i, len);
-        strHash = hash(sub, len);
-
-        bool match = true;
-
-        if (keyHash == strHash)
-        {
-
-            for(int j = 0; j < key.length(); j++){
-                if(sub[j] != key[j]){
-                    match = false;
-                    break;
-                }
-            }
-            if (match){
-                std::cout << "Our Pattern found at index " << i <<" on line "<<lineNum<< std::endl;
-            }
+	   if (line.length() < key.length())
+	   {
+	       lineNum++;
+            continue;
         }
 
-        strHash -= int(sub[0]) * power(256, len - 2);
-        strHash *= 256;
+        //key length
+        int len = key.length();
+
+        // calculate hash value of key
+        int keyHash = hash(key, len);
+
+        //make a int to store substring hash
+        int subHash = 0;
+        //make a string to store substring
+        std::string sub;
+
+        //get substring hash
+        sub = line.substr(0, len);
+        subHash = hash(sub, len);
+
+        for(int i = 0; i < line.length() -len + 1; i++){
+            //check for match
+            sub = line.substr(i,len);
+            bool match = true;
+            if(subHash == keyHash){
+                //check for false positive
+                for(int j = 0; j < key.length(); j++){
+                    if(sub[j] != key[j]){
+                        match = false;
+                        break;
+                    }
+                }
+                if (match){
+                    ////std::cout<<subHash<<std::endl;
+                    std::cout << "Our Pattern found at index " << i <<" on line "<<lineNum<< std::endl;
+                }
+            }
+            //roll the hash
+            subHash = ((subHash + 101 - ((int)line[i] * power(256, len-1))%101)*256 + (int)line[i+len])%101;
     }
+    lineNum++;
+
+	}
+	inFile.close();
+    timer.Stop();
+    timer.Calc();
+    timer.WriteCSV();
+    timer.Reset();
+
 }
 
 void RabinKarp::stringFind(const std::string& text, const std::string& key){
@@ -88,20 +102,4 @@ void RabinKarp::stringFind(const std::string& text, const std::string& key){
         // Get the next occurrence from the current position
         found = text.find(key, found + key.size());
     }
-}
-
-void RabinKarp::ReadFile(const std::string& name)
-{
-    //PROFILE_FUNCTION();
-	std::ifstream inFile;
-	inFile.open(name);
-	std::string line;
-
-	for (;std::getline(inFile, line);)
-	{
-	   rk(line,key);
-	   //stringFind(line,key);
-	   lineNum ++;
-	}
-	inFile.close();
 }

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <iostream>
 #include <chrono>
 #include <fstream>
@@ -41,102 +40,26 @@ public:
 		start = end = duration = 0;
 	}
 
-	void Header()
+	void SetName(const std::string& name)
+	{
+		m_inFile = name;
+	}
+
+	void WriteHeader()
 	{
 		std::ofstream oStream;
 		oStream.open(m_outFile);
 		oStream << "file_name,duration" << std::endl;
 		oStream.close();
+
 	}
 
 	void WriteCSV()
 	{
 		std::ofstream oStream;
 		oStream.open(m_outFile,std::ios::app);
-
+		oStream << "file_name,duration" << std::endl;
 		oStream << m_inFile  << "," << duration << std::endl;
 		oStream.close();
 	}
-
-		void SetName(const std::string& name)
-	{
-		m_inFile = name;
-	}
 };
-
-
-
-
-// #include <iostream>
-// #include <chrono>
-// #include <fstream>
-// #include <string>
-
-// class Timer1
-// {
-// public:
-// 	Timer1()
-// 	{
-// 		m_StartTimePoint = std::chrono::steady_clock::now();
-// 	}
-
-// 	~Timer1()
-// 	{
-// 		Stop();
-// 	}
-
-// 	void Stop()
-// 	{
-// 		auto endTimepoint = std::chrono::steady_clock::now();
-
-// 		long long start = std::chrono::time_point_cast<std::chrono::microseconds>(m_StartTimePoint).time_since_epoch().count();
-// 		long long end = std::chrono::time_point_cast<std::chrono::microseconds>(endTimepoint).time_since_epoch().count();
-
-// 		auto duration = end - start;
-// 		double ms = duration * 0.001;
-// 		//double ms = duration / 100.0f;
-
-
-// 		//std::cout << duration << std::endl;
-// 		std::cout << ms << " ms\n";
-// 	}
-
-
-// private:
-// 	std::chrono::time_point< std::chrono::steady_clock > m_StartTimePoint;
-// };
-=======
-#include "rk.h"
-class Timer
-{
-public:
-	Timer()
-	{
-		m_StartTimePoint = std::chrono::steady_clock::now();
-	}
-
-	~Timer()
-	{
-		Stop();
-	}
-
-	void Stop()
-	{
-		auto endTimepoint = std::chrono::steady_clock::now();
-
-		long long start = std::chrono::time_point_cast<std::chrono::microseconds>(m_StartTimePoint).time_since_epoch().count();
-		long long end = std::chrono::time_point_cast<std::chrono::microseconds>(endTimepoint).time_since_epoch().count();
-		
-		auto duration = end - start;
-		double ms = duration * 0.001;
-		//double ms = duration / 100.0f;
-		
-
-		//std::cout << duration << std::endl;
-	std::cout << ms << " ms\n";
-	}
-
-private:
-	std::chrono::time_point< std::chrono::steady_clock > m_StartTimePoint;
-};
->>>>>>> cb218b3a77751bcaae0797331dae5c072ec3abaa

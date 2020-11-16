@@ -24,15 +24,6 @@
 int main(int argc, char** argv)
 {
 
-    // std::string fname = "landbeyond.txt";
-    // std::string pattern = "English";
-    // RabinKarp rkSearch(fname, pattern);
-	//  Instrumentor::Get().BeginSession("Profile");
-	// //RunBenchmarks();
-    // rkSearch.ReadFile();
-	//  Instrumentor::Get().EndSession();
-
-
     std::ifstream container;
 	container.open("books/names.txt");
     std::vector<std::string> names;
@@ -42,27 +33,17 @@ int main(int argc, char** argv)
         line.insert(0,"books/");
         names.push_back(line);
     }
-    Timer timer;
-     timer.WriteHeader();
 
+
+    Timer timer;
     for(auto i: names){
 
         std::cout<<i<<std::endl;
         std::string fname = i;
         std::string pattern = "English";
         RabinKarp rkSearch(fname, pattern);
-        timer.SetName(fname);
 
-        timer.Start();
-
-        rkSearch.ReadFile(fname);
-        timer.Stop();
-         timer.WriteCSV();
-         timer.Reset();
-
+        rkSearch.rk(fname,pattern,timer);
     }
-
-
-
 
 }
