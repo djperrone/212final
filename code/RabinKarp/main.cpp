@@ -4,8 +4,6 @@
 #include <fstream>
 #include <vector>
 
-
-
 //do we need to erase symbols and does case matter, do spaces
 
 // void RunBenchmarks()
@@ -21,18 +19,26 @@
 //     // stringFind(text, pattern);
 // }
 
-int main(int argc, char** argv)
-{
-
+//function to get names from a directory
+std::vector<std::string> GetNames (const std::string& directory){
     std::ifstream container;
-	container.open("books/names.txt");
+	container.open(directory);
     std::vector<std::string> names;
     std::string line;
-    while(std::getline(container,line))
-    {
+    while(std::getline(container,line)){
         line.insert(0,"books/");
         names.push_back(line);
     }
+    return names;
+}
+
+int main(int argc, char** argv){
+    std::string directory = (argv[1]);
+    std::string pattern = (argv[2]);
+
+
+    std::vector<std::string> names = {};
+    names = GetNames(directory);
 
 
     Timer timer;
@@ -40,9 +46,8 @@ int main(int argc, char** argv)
 
         std::cout<<i<<std::endl;
         std::string fname = i;
-        std::string pattern = "English";
+        //std::string pattern = "English";
         RabinKarp rkSearch(fname, pattern);
-
         rkSearch.rk(fname,pattern,timer);
     }
 

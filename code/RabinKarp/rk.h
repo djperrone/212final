@@ -8,18 +8,18 @@
 #include <thread>
 #include <memory>
 #include <array>
+#include <vector>
 #include "instrumentator.h"
 #include "timer.h"
 
-//#define b 256
-//#define q 101
+#define b 256
+#define q 101
 
-class RabinKarp
-{
+class RabinKarp{
 
 private:
     std::string fname, key;
-    int lineNum = 1;
+    int foundTimes = 0;
 
 public:
 
