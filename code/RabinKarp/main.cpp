@@ -1,10 +1,8 @@
 #include "rk.h"
-#include "timer.h"
+#include "../tools/timer.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
-
-
 
 //do we need to erase symbols and does case matter, do spaces
 
@@ -21,48 +19,37 @@
 //     // stringFind(text, pattern);
 // }
 
-int main(int argc, char** argv)
-{
-
-    // std::string fname = "landbeyond.txt";
-    // std::string pattern = "English";
-    // RabinKarp rkSearch(fname, pattern);
-	//  Instrumentor::Get().BeginSession("Profile");
-	// //RunBenchmarks();
-    // rkSearch.ReadFile();
-	//  Instrumentor::Get().EndSession();
-
-
+//function to get names from a directory
+std::vector<std::string> GetNames (const std::string& directory){
     std::ifstream container;
-	container.open("books/names.txt");
+	container.open(directory);
     std::vector<std::string> names;
     std::string line;
-    while(std::getline(container,line))
-    {
-        line.insert(0,"books/");
+    while(std::getline(container,line)){
+        line.insert(0,"../books/");
         names.push_back(line);
     }
-    Timer timer;
-     timer.WriteHeader();
+    return names;
+}
 
+int main(int argc, char** argv){
+    std::string directory = (argv[1]);
+    std::string pattern = (argv[2]);
+
+    std::vector<std::string> names = {};
+    names = GetNames(directory);
+
+    Timer timer("timerResults/rk_timer_english");
     for(auto i: names){
 
         std::cout<<i<<std::endl;
         std::string fname = i;
-        std::string pattern = "English";
+        //std::string pattern = "English";
         RabinKarp rkSearch(fname, pattern);
-        timer.SetName(fname);
+        for(int j =0;j<5;j++){
+            rkSearch.rk(fname,pattern,timer);
 
-        timer.Start();
-
-        rkSearch.ReadFile(fname);
-        timer.Stop();
-         timer.WriteCSV();
-         timer.Reset();
-
+        }
     }
-
-
-
 
 }

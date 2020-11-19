@@ -7,101 +7,85 @@ int RabinKarp::power(int base, int exponent){
     //PROFILE_FUNCTION();
 	int poww = 1;
 
-	if (exponent == 0){
-		return 1;
-	}
-	else{
 		for(int i = 0; i < exponent; i++){
 			poww *= base;
-			poww = poww%293;
+			poww = poww%q;
 		}
-	}
+	//}
 
-	poww = poww%293;
-
-	return poww;
+	return poww%q;
 }
 
-int RabinKarp::hash(const std::string& text, int len)
-{
+int RabinKarp::hash(const std::string& text, int keyLen){
     //PROFILE_FUNCTION();
     int h = 0;
-    for (int i = 0; i < len; i++)
-    {
-        h += (int)text[i] * (power(256, len - 1 - i));
+    h = (int)text[0];
+    for (int i = 1; i < keyLen; i++){
+
+       h = (h*b + (text[i]))%q;
 
     }
+    h = h%q;
     return h;
 }
 
-void RabinKarp::rk(const std::string& text, const std::string& key)
-{
-    //PROFILE_FUNCTION();
+void RabinKarp::rk(const std::string& text, const std::string& key, Timer& timer){
     //if the line is less than the length of the pattern we are looking for skip it
-    if (text.length() < key.length()) {
-        return;
-    }
 
-    int len = key.length();
-    // calculate hash value of key
-    int keyHash = hash(key, len);
-
-    // calculate hash value of first substring to search
-    int strHash = hash(text.substr(0, len),len);
-
-
-
-    for (int i = 0; i <= text.length()-len; i++)
-    {
-
-        std::string sub = text.substr(i, len);
-        strHash = hash(sub, len);
-
-        bool match = true;
-
-        if (keyHash == strHash)
-        {
-
-            for(int j = 0; j < key.length(); j++){
-                if(sub[j] != key[j]){
-                    match = false;
-                    break;
-                }
-            }
-            if (match){
-                std::cout << "Our Pattern found at index " << i <<" on line "<<lineNum<< std::endl;
-            }
-        }
-
-        strHash -= int(sub[0]) * power(256, len - 2);
-        strHash *= 256;
-    }
-}
-
-void RabinKarp::stringFind(const std::string& text, const std::string& key){
-    //PROFILE_FUNCTION();
-    //find first occurence
-    std::size_t found = text.find(key);
-     while(found != std::string::npos){
-        // print out tthat the pattern occurs
-        std::cout << "Standard pattern found at index " << found <<" on line "<<lineNum<< std::endl;
-        // Get the next occurrence from the current position
-        found = text.find(key, found + key.size());
-    }
-}
-
-void RabinKarp::ReadFile(const std::string& name)
-{
-    //PROFILE_FUNCTION();
-	std::ifstream inFile;
-	inFile.open(name);
+    //Timer timer(__func__,text,key);
+    timer.SetBookName(text);
+    std::ifstream inFile;
+	inFile.open(text);
 	std::string line;
 
-	for (;std::getline(inFile, line);)
-	{
-	   rk(line,key);
-	   //stringFind(line,key);
-	   lineNum ++;
+	//make a int to store substring hash
+    int subHash = 0;
+    //key length
+    int keyLen = key.length();
+
+    int power_val = power(b, keyLen-1);
+
+    timer.Start();
+    // calculate hash value of key
+    int keyHash = hash(key, keyLen);
+
+	for (;std::getline(inFile, line);){
+	   int lineLen = line.length();
+
+        if (lineLen < keyLen){
+            continue;
+        }
+
+        subHash = hash(line.substr(0, keyLen), keyLen);
+
+        for(int i = 0; i < lineLen -keyLen + 1; i++){
+            //check for match
+
+            bool match = true;
+            if(subHash == keyHash){
+                //check for false positive
+                for(int j = 0; j < keyLen; j++){
+                    if(line.substr(i,keyLen)[j] != key[j]){
+                        match = false;
+                        break;
+                    }
+                }
+                if (match){
+                    //increment number of patters founf
+                    foundTimes++;
+                }
+            }
+            //roll the hash
+            subHash = ((subHash + q - ((int)line[i] * power_val)%q)*b + (int)line[i+keyLen])%q;
+        }
 	}
+
+	timer.Stop();
 	inFile.close();
+    timer.Calc();
+    timer.WriteCSV();
+    timer.Reset();
+
+    std::cout << foundTimes <<" patterns found "<<std::endl;
+
 }

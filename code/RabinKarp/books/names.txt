@@ -1,8 +1,0 @@
-ABook.txt
-Dubliners.txt
-Frankenstein.txt
-HowToSing.txt
-InOurTime.txt
-LandBeyond.txt
-Postscripts.txt
-TheMysteryofChoice.txt
