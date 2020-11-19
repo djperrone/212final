@@ -39,7 +39,7 @@ int main(int argc, char** argv){
     std::vector<std::string> names = {};
     names = GetNames(directory);
 
-    Timer timer("timerResults/rk_timer_english");
+    Timer timer("rk_timer_english1");
     for(auto i: names){
 
         std::cout<<i<<std::endl;
