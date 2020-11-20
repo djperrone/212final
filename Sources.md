@@ -8,6 +8,9 @@
 - BM good suffix reference: https://stackoverflow.com/questions/19345263/boyer-moore-good-suffix-heuristics
 - BM good suffix explanation: http://www.users.abo.fi/ipetre/textalg/Lecture_3.pdf
 
+-https://www.cs.princeton.edu/courses/archive/spring14/cos226/lectures/53SubstringSearch.pdf
+- https://stackoverflow.com/questions/59126425/c-strange-results-brute-force-is-quicker-than-rabin-karp
+
 
 ## Cherno:
 - Timing: https://www.youtube.com/watch?v=oEx5vGNFrLk&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&index=63 <br>
