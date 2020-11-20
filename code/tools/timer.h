@@ -12,23 +12,27 @@ class Timer
 private:
 	std::chrono::time_point<std::chrono::steady_clock> m_startTimePoint;
 	std::chrono::time_point<std::chrono::steady_clock> m_endTimepoint;
-	std::string m_inFile, m_outFile, m_functionName, m_Pattern;
+	std::string m_inFile, m_outFile, m_functionName, m_Pattern, m_code;
+	int m_mod;
 	long double start, end, duration;
 
 
 public:
+	// Default Constructor
 	Timer()
 		:m_outFile("timer.csv"), m_inFile("na"), start(0), end(0), duration(0) {
 		WriteHeader();
 	}
 
-	Timer(std::string outFile, const std::string& book, const  std::string& pattern)
-		: m_outFile(outFile.append(".csv")), m_inFile(book), start(0), end(0), duration(0) {
+	// Standard Constructor for testing - takes in outfile, code, and mod
+	Timer(std::string outFile, std::string code, int mod)
+		: m_outFile(outFile.append(".csv")), m_inFile("na"), m_code(code), start(0), end(0), duration(0), m_mod(mod) {
 		WriteHeader();
 	}
 
-	Timer(std::string outFile)
-		: m_outFile(outFile.append(".csv")), m_inFile("na"), start(0), end(0), duration(0) {
+	// Bruteforce Consutrctor sets mod to -1
+	Timer(std::string outFile, std::string code)
+		: m_outFile(outFile.append(".csv")), m_inFile("na"), m_code(code), start(0), end(0), duration(0), m_mod(-1) {
 		WriteHeader();
 	}
 
@@ -42,27 +46,27 @@ public:
 		start = end = duration = 0;
 	}
 
-	void WriteCSV() {
-		std::ofstream oStream;
-		oStream.open(m_outFile, std::ios::app);
-		oStream << m_inFile << "," << duration << std::endl;
-		oStream.close();
-	}
-
 	void WriteHeader() {
 		std::ofstream oStream;
 		oStream.open(m_outFile);
-		//oStream << "key: "<< pattern << std::endl;
-		oStream << "file_name,duration" << std::endl;
+		oStream << "file_name,duration," << m_code << "," << m_mod << std::endl;
 		oStream.close();
 	}
 
+
+	void WriteCSV() {
+		std::ofstream oStream;
+		oStream.open(m_outFile, std::ios::app);
+		oStream << m_inFile << "," << duration<< std::endl;
+		oStream.close();
+	}
+
+	
 	void SetName(const std::string& bookName) {
 		m_inFile = bookName;
 	}
 
 	inline void Start() { m_startTimePoint = std::chrono::steady_clock::now(); }
 	inline void Stop() { m_endTimepoint = std::chrono::steady_clock::now(); }
-	inline void SetBookName(const std::string& name) { m_inFile = name; };
-
+	inline void SetBookName(const std::string& name) { m_inFile = name; }
 };

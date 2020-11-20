@@ -1,0 +1,10 @@
+phrase1: She was sure they would but she could not help thinking
+phrase2: having perhaps the better claim
+word1: English
+word2: the
+word3: a
+
+NOT USED
+#phrase 3: and felt that he must have
+#phrase 4: she continued to sit by the window
+#phrase 5: one of the most important things

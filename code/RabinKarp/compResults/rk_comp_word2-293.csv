@@ -1,0 +1,13 @@
+file_name,num_lines,total_comps,patterns_found,false_positives,avg_line_length,word2,293
+../../books/10LinesFirst.txt,10,362,8,0,35,
+../../books/10LinesSecond.txt,10,343,4,0,35,
+../../books/100LinesFirst.txt,100,4647,64,12,46,
+../../books/100LinesSecond.txt,100,4386,50,4,43,
+../../books/1000LinesFirst.txt,1000,49214,704,118,48,
+../../books/1000LinesSecond.txt,1000,52344,675,178,51,
+../../books/10000LinesFirst.txt,10000,549281,7498,1240,54,
+../../books/10000LinesSecond.txt,10000,394711,5615,977,39,
+../../books/50000Lines.txt,50007,2712571,35739,6633,53,
+../../books/100000Lines.txt,100000,4782556,57709,11581,47,
+../../books/500000Lines.txt,500000,24659885,341283,59581,48,
+../../books/1000000Lines.txt,1000000,47825560,577090,115810,47,
