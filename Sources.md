@@ -24,3 +24,8 @@
 
 ## Macros
 - https://docs.microsoft.com/en-us/cpp/preprocessor/predefined-macros?view=msvc-160
+
+# Algorithm analysis
+## https://academic.oup.com/jamia/article/7/4/378/714050
+- http://courses.ics.hawaii.edu/ReviewICS311/morea/230.string-matching/reading-notes.html
+- https://academic.oup.com/jamia/article/7/4/378/714050

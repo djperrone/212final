@@ -1,0 +1,16 @@
+phrase1: She was sure they would but she could not help thinking
+phrase2: these are useless complaints
+
+phrase3: At the opening of this story, Katrina’s daughter was a little girl of
+ten, who was devoted to dancing, and who lay awake at nights worrying
+about the shape of her legs, which had already begun to swell with a
+dancer’s muscles.
+
+word1: English
+word2: the
+word3: a
+
+NOT USED
+#phrase 3: and felt that he must have
+#phrase 4: she continued to sit by the window
+#phrase 5: one of the most important things

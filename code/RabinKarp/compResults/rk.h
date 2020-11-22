@@ -3,15 +3,16 @@
 #include <string>
 #include <fstream>
 #include <vector>
+
 #include "../../tools/comptool.h"
 
 #define b 256
-#define q 101
+#define q 293
 
-class RabinKarp{
+class RabinKarp {
 
 private:
-    std::string fname, key;
+    std::string fname, key, m_string;
     int foundTimes = 0;
 
 public:
@@ -20,7 +21,8 @@ public:
 
     int power(int base, int exponent);
     int hash(const std::string& text, int len);
-    void rk(const std::string& text, const std::string& key, CompTool& compTool);
-    void stringFind(const std::string& text, const std::string& key);
-    void ReadFile(const std::string& name);
+    void rk(CompTool& tool);
+    void concatStr();
+    void Strip(std::string& line);
+    inline void clearStr() { m_string.clear(); }
 };
