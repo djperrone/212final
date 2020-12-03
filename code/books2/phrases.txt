@@ -1,9 +1,10 @@
 phrase1: She was sure they would but she could not help thinking
 phrase2: these are useless complaints
 
-phrase3: At the opening of this story, Katrina’s daughter was a little girl of
-ten, who was devoted to dancing, and who lay awake at nights worrying
-about the shape of her legs, which had already begun to swell with a
+phrase3:She said quietly to him, as if she were preparing him for a great
+disappointment, “I have deliberately, very deliberately, removed remorse
+from the forbidden fruit,” and he was abject suddenly and trembling.
+
 dancer’s muscles.
 
 word1: English

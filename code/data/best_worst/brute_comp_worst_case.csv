@@ -1,0 +1,2 @@
+file_name,inner_comps,outter_comps,total_comps,patterns_found,false_positives,avg_line_length,worst_case,-1
+10000,59973,9996,69969,1,9995
