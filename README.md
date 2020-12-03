@@ -43,6 +43,7 @@
 ### Generate Plots(complete by 12/5)
 |Date|Comments|
 |---|---|
+|11/24| - complteted graphs for rabin karo using r software <br> - got statistical summary fo data as well|
     
 ### Project Report (complete by 12/6)
 |Date|Comments|
