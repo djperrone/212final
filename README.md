@@ -20,7 +20,7 @@
 |11/10|- Completed solution to rabin-karp with limited test cases.<br>- Need to run a lot of test cases to find bugs.|
 |11/11|- Compared our solution to the std library find function and found bug<br>-Fixed the bug by doing modulus in the for loop of power function.<br>- Update - Program can now read and search each line of a large text file.<br> - Found bug when searching large textfile - rolling hash gives false positives<br>-Fixed bug by increasing q and adding inner loop to check for false-positives<br> began testing timers in rk|
 
-### Boyer Moore Algorithm (complete by 11/22)
+### Boyer Moore Algorithm (complete by 12/3)
 |Date|Comments|
 |---|---|
 |11/11|- Created a roadmap for the implemntation with a class and nessecary functions.<br> - Made substantial progress on understanding of the algorithm using an online visualization tool that steps through the algorithm for any example you type. Need more understanding of the good and bad suffix tables and preprocessing. <br> - Will probably need to use a map to store the tables. |
@@ -36,19 +36,22 @@
 |11/14|-Created list of text files to search (8 books) timesd all 8 books and wrote times to csv file |
 |11/15 |Added counters to track comps and false positives, write comps/false to csv file |
 
-### Record runtime BM (complete by 11/29)
+### Record runtime BM (complete by 12/4)
 |Date|Comments|
 |---|---|
     
-### Generate Plots(complete by 11/29)
+### Generate Plots(complete by 12/5)
 |Date|Comments|
 |---|---|
     
 ### Project Report (complete by 12/6)
 |Date|Comments|
 |---|---|
+|11/25| - outlined created|
+|11/30| - got a good portion of the rabin karp section of the project report done|
     
 ### Class Presentation (12/9?)
 |Date|Comments|
 |---|---|
+|11/30| - started creating powerpoint <br> - got most of rabin karp done, need to adjutst to have less words and more visuals|
 
