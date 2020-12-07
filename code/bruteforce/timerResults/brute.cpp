@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include "../../tools/timer.h"
+#include "../../tools/parser.h"
 
 std::vector<std::string> GetNames (const std::string& directory);
 void concatString(const std::string& text, std::string& longStr);
@@ -12,11 +13,18 @@ void concatString(std::string& fname, std::string& m_string);
 
 int main(int argc, char** argv){
     std::string directory = (argv[1]);
-    std::string pattern = (argv[2]);
+    std::string pattern_name= (argv[2]);
     std::string code = (argv[3]);
-   //std::string pattern = "She said quietly to him, as if she were preparing him for a great disappointment, “I have deliberately, very deliberately, removed remorse from the forbidden fruit,” and he was abject suddenly and trembling.";
-    //std::string code = "phrase3"; 
+   
     std::string longStr = "";
+    Parser pattern(pattern_name);
+    pattern.concatStr();
+    std::cout<<pattern.m_string.length()<<std::endl;
+
+        // std::ofstream oStream;
+		// oStream.open("testing123.txt");
+		// oStream << pattern;
+		// oStream.close();
 
     std::vector<std::string> names = {};
     names = GetNames(directory);
@@ -27,8 +35,9 @@ int main(int argc, char** argv){
         std::string fname = i;
         for(int j =0;j<5;j++){
             concatString(fname, longStr);
-            bf(fname,longStr,pattern,timer);
+            bf(fname,longStr,pattern.m_string,timer);
             longStr.clear();
+            
         }
         
     }
@@ -86,7 +95,7 @@ std::vector<std::string> GetNames (const std::string& directory){
     std::vector<std::string> names;
     std::string line;
     while(std::getline(container,line)){
-        line.insert(0,"../../books2/");
+        line.insert(0,"../../books/");
         names.push_back(line);
     }
     return names;
@@ -99,6 +108,7 @@ void bf(const std::string& text,const std::string& longStr, const std::string& k
     timer.SetBookName(std::to_string(longStr.length()));
     int keyLen = key.length();
     int foundTimes = 0;
+    int fp =0;
     timer.Start();  
 
     if(longStr.length() < keyLen){
@@ -113,6 +123,7 @@ void bf(const std::string& text,const std::string& longStr, const std::string& k
         int j;
         for(j = 0; j < keyLen; j++){
             if(longStr[i+j] != key[j]){
+                fp++;
                 break;
             }
         }
@@ -123,6 +134,8 @@ void bf(const std::string& text,const std::string& longStr, const std::string& k
     timer.Stop();	
     timer.Calc();
     timer.WriteCSV();
-    timer.Reset();   
+    timer.Reset();  
+
     std::cout<<foundTimes <<" patterns found"<<std::endl;
+   // std::cout<<fp <<" false positives"<<std::endl;
 }

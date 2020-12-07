@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include "../../tools/comptool.h"
+#include "../../tools/parser.h"
 
 
 std::vector<std::string> GetNames (const std::string& directory);
@@ -12,16 +13,16 @@ void concatString(std::string& fname, std::string& m_string);
 
 
 int main(int argc, char** argv){
-    //std::string directory = (argv[1]);
-    //std::string pattern = (argv[2]);
-    //std::string code = (argv[3]);
+    std::string directory = (argv[1]);
+    std::string pattern_name = (argv[2]);
+    std::string code = (argv[3]);
 
-   //  std::string directory = (argv[1]);
-  //  std::string pattern = (argv[2]);
-   // std::string code = (argv[3]);
-    std::string code = "phrase3";
-    std::string directory = "../../books2/names.txt";
-    std::string pattern = "She said quietly to him, as if she were preparing him for a great disappointment, “I have deliberately, very deliberately, removed remorse from the forbidden fruit,” and he was abject suddenly and trembling.";
+    Parser pattern(pattern_name);
+    pattern.concatStr();
+    std::cout<<pattern.m_string.length()<<std::endl;
+    // std::string code = "phrase3";
+    // std::string directory = "../../books2/names.txt";
+    // std::string pattern = "She said quietly to him, as if she were preparing him for a great disappointment, “I have deliberately, very deliberately, removed remorse from the forbidden fruit,” and he was abject suddenly and trembling.";
     
 
     std::string longStr = "";
@@ -35,7 +36,7 @@ int main(int argc, char** argv){
         std::string fname = i;
 
         concatString(fname, longStr);
-        bf(fname,longStr,pattern,tool);
+        bf(fname,longStr,pattern.m_string,tool);
         longStr.clear();       
         
     }
@@ -91,7 +92,7 @@ std::vector<std::string> GetNames (const std::string& directory){
     std::vector<std::string> names;
     std::string line;
     while(std::getline(container,line)){
-        line.insert(0,"../../books2/");
+        line.insert(0,"../../books/");
         names.push_back(line);
     }
     return names;
@@ -130,8 +131,8 @@ void bf(const std::string& text,const std::string& longStr, const std::string& k
         }
     tool.totalComps = tool.innerComps + tool.outterComps;
     tool.WriteCSV();
+    std::cout<<tool.patterns_found <<" patterns found"<<std::endl;
     tool.Reset();    
-    std::cout<<foundTimes <<" patterns found"<<std::endl;
     return;
 }
 

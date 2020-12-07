@@ -69,9 +69,7 @@ int RabinKarp::hash(const std::string& text, int keyLen) {
     int h = 0;
     h = (int)text[0];
     for (int i = 1; i < keyLen; i++) {
-
         h = (h * b + (text[i])) % q;
-
     }
     h = h % q;
     return h;
@@ -94,7 +92,7 @@ void RabinKarp::rk(Timer& timer) {
         timer.WriteCSV();
         timer.Reset();
         clearStr();
-        std::cout << foundTimes << " patterns found " << std::endl;
+       // std::cout << foundTimes << " patterns found " << std::endl;
         return;
     }
     // calculate hash value of key and initial substring
@@ -115,6 +113,7 @@ void RabinKarp::rk(Timer& timer) {
             }
             if (match) {
                 //increment number of patters found
+                //std::cout<<"pattern found at index "<<i<<std::endl;
                 foundTimes++;
             }
         }
@@ -128,5 +127,5 @@ void RabinKarp::rk(Timer& timer) {
     timer.Reset();
     clearStr();
     std::cout << foundTimes << " patterns found " << std::endl;
-
+    foundTimes=0;
 }

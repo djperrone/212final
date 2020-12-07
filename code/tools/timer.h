@@ -37,9 +37,9 @@ public:
 	}
 
 	void Calc() {
-		start = std::chrono::time_point_cast<std::chrono::microseconds>(m_startTimePoint).time_since_epoch().count();
-		end = std::chrono::time_point_cast<std::chrono::microseconds>(m_endTimepoint).time_since_epoch().count();
-		duration = (end - start) * 0.001;
+		start = std::chrono::time_point_cast<std::chrono::nanoseconds>(m_startTimePoint).time_since_epoch().count();
+		end = std::chrono::time_point_cast<std::chrono::nanoseconds>(m_endTimepoint).time_since_epoch().count();
+		duration = (end - start) * 0.000001;
 	}
 
 	void Reset() {
@@ -49,7 +49,7 @@ public:
 	void WriteHeader() {
 		std::ofstream oStream;
 		oStream.open(m_outFile);
-		oStream << "file_name,duration," << m_code << "," << m_mod << std::endl;
+		oStream << "str_len,duration," << m_code << "," << m_mod << std::endl;
 		oStream.close();
 	}
 

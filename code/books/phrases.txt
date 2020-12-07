@@ -1,0 +1,16 @@
+word1: a
+word10: compliment
+phrase50: She was sure they would but she could not help
+phrase100: Margaret, what comment can I make on the untimely extinction of this glorious spirit?  What can
+
+
+word3: on the untimely extinction of this glorious spirit
+word4: evening as he was about to put a morsel of corned beef and cabbage into his mouth his hand stopped.
+
+
+NOT USED
+#phrase 3: and felt that he must have
+#phrase 4: she continued to sit by the window
+#phrase 5: one of the most important things
+phrase30: these are useless complaints
+phrase3:She said quietly to him, as if she were preparing him for a great disappointment, “I have deliberately, very deliberately, removed remorse from the forbidden fruit,” and he was abject suddenly and trembling.
