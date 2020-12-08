@@ -57,7 +57,7 @@
 |12/6| - all grpaghs added to project report|
 |12/8| - created table of contents and appendix. Paper should now be finalized|
     
-### Class Presentation (12/9?)
+### Class Presentation (12/9)
 |Date|Comments|
 |---|---|
 |11/30| - started creating powerpoint <br> - got most of rabin karp done, need to adjutst to have less words and more visuals|
