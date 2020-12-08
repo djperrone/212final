@@ -1,4 +1,4 @@
-////RK String Length vs RunTime factor Pattern////
+#RK String Length vs RunTime factor Pattern
 > library(ggplot2)
 > data<-read.csv("C:\\Users\\raegr\\OneDrive\\Documents\\R\\csc212\\rk_timer.csv", header=T)
 > time <- data$duration
@@ -10,7 +10,7 @@
 + x = "Length of String"))
 > 
 
-////BF String Length vs RunTime factor Pattern////
+#BF String Length vs RunTime factor Pattern
 data <- read.csv("C:\\Users\\raegr\\OneDrive\\Documents\\R\\csc212\\bf_timer.csv", header=T)
 > time <- data$duration
 > length <- data$file_name
@@ -21,7 +21,7 @@ data <- read.csv("C:\\Users\\raegr\\OneDrive\\Documents\\R\\csc212\\bf_timer.csv
 + x = "Length of String"))
 >
 
-////BF vs RK: Average Runtime vs Pattern////
+#BF vs RK: Average Runtime vs Pattern
 > data<-read.csv("C:\\Users\\raegr\\OneDrive\\Documents\\R\\csc212\\final_data\\timer_results\\timer_table_rk.csv", header=T)
 > data<-melt(data)
 Using Pattern as id variables
@@ -32,7 +32,7 @@ Using Pattern as id variables
 > rk + scale_fill_manual(values = c("#3B85CA","#BF2D29")) + scale_y_continuous(trans='sqrt')
 
 
-////BF vs RK: Average Comps vs Pattern////
+#BF vs RK: Average Comps vs Pattern
 > data <- read.csv("C:\\Users\\raegr\\OneDrive\\Documents\\R\\csc212\\comps_table.csv", header=T)
 > data<-melt(data)
 Using Pattern as id variables
@@ -40,7 +40,7 @@ Using Pattern as id variables
 + theme_bw()+ylab("Average Number of Comparisons") +xlab("Pattern")
 > 
 
-////RK BF Runtime Factor Cases////
+#RK BF Runtime Factor Cases
 > data <- read.csv("C:\\Users\\raegr\\OneDrive\\Documents\\R\\csc212\\timer_cases.csv", header=T)
 > data<-melt(data)
 Using Case as id variables
@@ -48,7 +48,7 @@ Using Case as id variables
 + theme_bw()+ylab("Time in Milliseconds") +xlab("Case") + ggtitle("Best and Worse case Runtimes")
 > 
 
-////RK BF Comps Factor Cases////
+#RK BF Comps Factor Cases
 > data <- read.csv("C:\\Users\\raegr\\OneDrive\\Documents\\R\\csc212\\comp_cases.csv", header=T)
 > data<-melt(data)
 Using Case as id variables
@@ -56,7 +56,7 @@ Using Case as id variables
 + theme_bw()+ylab("Number of Comparisons") +xlab("Case") + ggtitle("Best and Worse case Comparisons")
 
 
-////BM String Length vs RunTime factor Pattern////
+#BM String Length vs RunTime factor Pattern
 > library(ggplot2)
 > data<-read.csv("C:\\Users\\raegr\\OneDrive\\Documents\\R\\csc212\\\final_data\\bm_timer.csv", header=T)
 > time <- data$duration
@@ -67,7 +67,7 @@ Using Case as id variables
 + x = "Length of String"))
 > 
 
-////BM vs BF: Average Comps vs Pattern////
+#BM vs BF: Average Comps vs Pattern
 > data <- read.csv("C:\\Users\\raegr\\OneDrive\\Documents\\R\\csc212\\final_data\\comps_table.csv", header=T)
 > data<-melt(data)
 Using Pattern as id variables
@@ -76,7 +76,7 @@ Using Pattern as id variables
 > 
 
 
-////BF vs BM: Average Runtime vs Pattern////
+#BF vs BM: Average Runtime vs Pattern
 >data<-read.csv("C:\\Users\\raegr\\OneDrive\\Documents\\R\\csc212\\final_data\\timer_results\\timer_table_bm.csv", header=T)
 > data<-melt(data)
 Using Pattern as id variables
@@ -86,7 +86,7 @@ Using Pattern as id variables
 > bm + scale_fill_manual(values = c("#3B85CA","#A0A1A4")) + scale_y_continuous(trans='sqrt')
 
 
-/////All Time/////
+#All Time
 > data<-read.csv("C:\\Users\\raegr\\OneDrive\\Documents\\R\\csc212\\final_data\\timer_results\\timer_table_all.csv", header=T)
 > data<-melt(data)
 Using Pattern as id variables
@@ -97,7 +97,7 @@ data$Pattern <- as.character(data$Pattern)
 > all + scale_fill_manual(values = c("#3B85CA","#BF2D29", "#A0A1A4")) + scale_y_continuous(trans='sqrt')
 
 
-/////All Comps//////
+#All Comps
 > data<-read.csv("C:\\Users\\raegr\\OneDrive\\Documents\\R\\csc212\\final_data\\compresults\\comp_table_all.csv", header=T)
 > data <- melt(data)
 Using Pattern as id variables
