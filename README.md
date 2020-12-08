@@ -39,20 +39,28 @@
 ### Record runtime BM (complete by 12/4)
 |Date|Comments|
 |---|---|
+|12/5| - completed running benchmarking on boyer moore|
     
 ### Generate Plots(complete by 12/5)
 |Date|Comments|
 |---|---|
 |11/24| - complteted graphs for rabin karo using r software <br> - got statistical summary fo data as well|
+|12/6| - all boyer moore grapghs complete
+|12/7| - all grapghs finalized with color labels axes etc
     
 ### Project Report (complete by 12/6)
 |Date|Comments|
 |---|---|
 |11/25| - outlined created|
 |11/30| - got a good portion of the rabin karp section of the project report done|
+|12/3| - completed boyer moore section|
+|12/6| - all grpaghs added to project report|
+|12/8| - created table of contents and appendix. Paper should now be finalized|
     
 ### Class Presentation (12/9?)
 |Date|Comments|
 |---|---|
 |11/30| - started creating powerpoint <br> - got most of rabin karp done, need to adjutst to have less words and more visuals|
+|12/3| - started boyer moore section of powerpoint|
+|12/7| - edited powepoint it is finalized for presentation ready to start rehearsal|
 
