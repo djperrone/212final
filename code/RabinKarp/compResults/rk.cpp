@@ -80,7 +80,7 @@ void RabinKarp::rk(CompTool& tool){
     //if the line is less than the length of the pattern we are looking for skip it
 
     //Timer timer(__func__,text,key);
-    tool.SetBookName(std::to_string(m_string.length()));    
+    tool.SetTextLen(std::to_string(m_string.length()));    
 
 	//make a int to store substring hash
     int subHash = 0;

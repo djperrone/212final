@@ -1,38 +1,54 @@
 #include "rk.h"
 #include "../../tools/comptool.h"
+#include "../../tools/parser.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include "../../tools/parser.h"
 
 //function to get names from a directory
-std::vector<std::string> GetNames (const std::string& directory){
+std::vector<std::string> GetNames(const std::string& directory) {
+
     std::ifstream container;
-	container.open(directory);
+    container.open(directory);
+    std::cout<<"dir "<<directory<<std::endl;
     std::vector<std::string> names;
     std::string line;
-    while(std::getline(container,line)){
-        line.insert(0,"../../books/");
+
+    std::cout << directory << std::endl;
+    // Get filepath
+    std::string path = "";
+    for(int i =directory.length()-1; i >=0;i--){
+        if(directory[i] == '/'){
+            path = directory.substr(0,i+1);
+            break;
+        }
+    }
+    //std::cout<<"p "<<path<<std::endl;
+    
+    while (std::getline(container, line)) {
+        line.insert(0, path);
+       // std::cout<<line<<std::endl;
         names.push_back(line);
     }
     return names;
 }
 
+/* Main Function
+* Command line args - 1. File containing list of files to search 2. Pattern file name 3. Output File tag
+* pre-processing - concats pattern and prepares text file for search
+*/
 int main(int argc, char** argv){
    std::string directory = (argv[1]);
    std::string pattern_name = (argv[2]);
    std::string code = (argv[3]);
 
-//     std::string code = "phrase3";
-//    std::string directory = "../../books2/names.txt";
-//    std::string pattern = "She said quietly to him, as if she were preparing him for a great disappointment, “I have deliberately, very deliberately, removed remorse from the forbidden fruit,” and he was abject suddenly and trembling.";
     Parser pattern(pattern_name);
     pattern.concatStr();
     std::cout<<pattern.m_string.length()<<std::endl;
     std::vector<std::string> names = {};
     names = GetNames(directory);
     std::string title = "rk_comp_"+code+"-"+std::to_string(q);
-    CompTool compTool(title,code,q);   
+    CompTool compTool(title,pattern.m_string,code,q);   
     for(auto i: names){
 
         std::cout<<i<<std::endl;

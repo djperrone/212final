@@ -1,9 +1,16 @@
 #pragma once
 
+/*
+* Parser header file is based on the Strip and concat functions found in search classes
+* This was added on after the fact when I needed a way to parse pattern and random string generator files
+* Ideally this would have been used in all files instead of the individual class functions in search
+*/
+
 class Parser {
 public:
 
     Parser();
+    // Takes in file name
     Parser(std::string name)
         :fname(name), m_string("") {}
 
@@ -12,9 +19,9 @@ public:
     void concatStr();
     void Strip(std::string& line);
     inline void clearStr() { m_string.clear(); }
-
 };    
 
+// Remove leading and trailing whitespace
 void Parser::Strip(std::string& line) {
 
     if (line[0] == ' ' || line[line.length() - 1] == ' ') {
@@ -54,12 +61,10 @@ void Parser::concatStr() {
             continue;
         Strip(line);
         numlines++;
-
-
         line.append("");
         m_string.append(line);
     }
-    if(numlines>1)
-        m_string.erase(m_string.length()-1);
+     //if(numlines>1)
+        // m_string.erase(m_string.length()-1);
     inFile.close();
 }

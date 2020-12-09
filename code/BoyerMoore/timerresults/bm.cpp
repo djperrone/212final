@@ -1,15 +1,10 @@
 #include "bm.h"
 
-
-BoyerMoore::BoyerMoore(std::string filename, std::string pattern)
-    :fname(filename),key(pattern) {
-   
-    //goodArrayH.resize(key.length(),1);
-    //goodArrayL.resize(key.length(),1);
-    
-}
+BoyerMoore::BoyerMoore(std::string& filename, std::string& pattern)
+    :fname(filename),key(pattern) {}
 
 
+// Remove and elading or trailing whitespace
 void BoyerMoore::Strip(std::string& line){
 
     if(line[0]==' ' || line[line.length()-1]==' '){
@@ -32,31 +27,27 @@ void BoyerMoore::Strip(std::string& line){
                     }
                 }
             }
-            //std::cout<<"after: "<<line<<"*"<<std::endl;
+            
     }
 }
 
-// Concatenate entire file into one string
+// Concatenate entire text file into one string
 void BoyerMoore::concatStr() {
-
+    
     std::ifstream inFile;
     inFile.open(fname);
     std::string line;
-    while (std::getline(inFile, line)) {
-        //std::cout<<line<<std::endl;
-        // if(fname=="../../books/50000Chars.txt"){
-        //     std::cout<<line<<std::endl;
-        //     return;
-        // }
-
+    // loop through each line of file
+    while (std::getline(inFile, line)) { 
+        // skip empty lines
         if (line == "")
             continue;
-    Strip(line);
+        Strip(line);
+        
 
         line.append(" ");
         m_string.append(line);
     }
-
     inFile.close();
 }
 
@@ -73,7 +64,7 @@ void BoyerMoore::makeBadTable(const std::string& key){
     badCharacterTable[key[key.length()-1]] = 1;
 
     ///print map//////
-    std::map<char, int>::iterator it;
+    //std::map<char, int>::iterator it;
 
     // std::cout << "\n-----------bad--------------------\n";
     // for (it = badCharacterTable.begin(); it != badCharacterTable.end(); it++){
@@ -231,9 +222,11 @@ void BoyerMoore::bm(Timer& timer){
     int localpats = 0;
 
     
-    timer.SetBookName(std::to_string(m_string.length()));
+    timer.SetTextLen(std::to_string(m_string.length()));
 
+    // Start timer
     timer.Start();
+    // Pre-processing functions to create tables
     makeBadTable(key);
     makeGoodArrayL(key);
     makeGoodArrayH(key);
@@ -246,13 +239,9 @@ void BoyerMoore::bm(Timer& timer){
             //if we got through whole pattern we found a match
             inner++;
             if(i == 0){
-                localpats++;               
-             
-                //std::cout<<localpats<<" found"<<std::endl;
-                //std::cout<<"Pattern found at index "<<align-(key.length()-1)<<std::endl;
-             
-                
+                localpats++;              
                 //print where we found a pattern
+                //std::cout<<"Pattern found at index "<<align-(key.length()-1)<<std::endl;                     
                 break;
             }
             //decrement i
@@ -269,11 +258,11 @@ void BoyerMoore::bm(Timer& timer){
         }
         
     }
+    // Stop timer, write results to file, reset
     timer.Stop();
     timer.Calc();
     timer.WriteCSV();
     timer.Reset();
     clearStr();
-    std::cout<<"found "<<localpats<<std::endl;
-    
+    std::cout<<"found "<<localpats<<std::endl;    
 }

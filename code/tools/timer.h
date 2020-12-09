@@ -4,10 +4,7 @@
 #include <fstream>
 #include <string>
 
-#define algorithm __FUNCTION__
-
-class Timer
-{
+class Timer{
 
 private:
 	std::chrono::time_point<std::chrono::steady_clock> m_startTimePoint;
@@ -15,7 +12,6 @@ private:
 	std::string m_inFile, m_outFile, m_functionName, m_Pattern, m_code;
 	int m_mod;
 	long double start, end, duration;
-
 
 public:
 	// Default Constructor
@@ -25,14 +21,14 @@ public:
 	}
 
 	// Standard Constructor for testing - takes in outfile, code, and mod
-	Timer(std::string outFile, std::string code, int mod)
-		: m_outFile(outFile.append(".csv")), m_inFile("na"), m_code(code), start(0), end(0), duration(0), m_mod(mod) {
+	Timer(std::string& outFile,std::string& pat, std::string& code, int mod)
+		: m_outFile(outFile.append(".csv")),m_Pattern(pat), m_code(code), start(0), end(0), duration(0), m_mod(mod) {
 		WriteHeader();
 	}
 
 	// Bruteforce Consutrctor sets mod to -1
-	Timer(std::string outFile, std::string code)
-		: m_outFile(outFile.append(".csv")), m_inFile("na"), m_code(code), start(0), end(0), duration(0), m_mod(-1) {
+	Timer(std::string& outFile,std::string& pat, std::string& code)
+		: m_outFile(outFile.append(".csv")), m_Pattern(pat), m_code(code), start(0), end(0), duration(0), m_mod(-1) {
 		WriteHeader();
 	}
 
@@ -49,7 +45,7 @@ public:
 	void WriteHeader() {
 		std::ofstream oStream;
 		oStream.open(m_outFile);
-		oStream << "str_len,duration," << m_code << "," << m_mod << std::endl;
+		oStream << "str_len,pat_len,duration," << m_code << "," << m_mod << std::endl;
 		oStream.close();
 	}
 
@@ -57,16 +53,11 @@ public:
 	void WriteCSV() {
 		std::ofstream oStream;
 		oStream.open(m_outFile, std::ios::app);
-		oStream << m_inFile << "," << duration<< std::endl;
+		oStream << m_inFile <<","<<m_Pattern.length()<< "," << duration<< std::endl;
 		oStream.close();
-	}
-
-	
-	void SetName(const std::string& bookName) {
-		m_inFile = bookName;
-	}
+	}	
 
 	inline void Start() { m_startTimePoint = std::chrono::steady_clock::now(); }
 	inline void Stop() { m_endTimepoint = std::chrono::steady_clock::now(); }
-	inline void SetBookName(const std::string& name) { m_inFile = name; }
+	inline void SetTextLen(const std::string& name) { m_inFile = name; }
 };

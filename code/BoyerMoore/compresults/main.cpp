@@ -6,18 +6,33 @@ std::vector<std::string> GetNames(const std::string& directory) {
 
     std::ifstream container;
     container.open(directory);
+    std::cout<<"dir "<<directory<<std::endl;
     std::vector<std::string> names;
     std::string line;
 
     std::cout << directory << std::endl;
+    // Get filepath
+    std::string path = "";
+    for(int i =directory.length()-1; i >=0;i--){
+        if(directory[i] == '/'){
+            path = directory.substr(0,i+1);
+            break;
+        }
+    }
+    std::cout<<"p "<<path<<std::endl;
+    
     while (std::getline(container, line)) {
-        line.insert(0, "../../books/");
+        line.insert(0, path);
        // std::cout<<line<<std::endl;
         names.push_back(line);
     }
     return names;
 }
 
+/* Main Function
+* Command line args - 1. File containing list of files to search 2. Pattern file name 3. Output File tag
+* pre-processing - concats pattern and prepares text file for search
+*/
 int main(int argc, char** argv){
     std::string directory = (argv[1]);
     std::string pattern_name = (argv[2]);
@@ -26,28 +41,20 @@ int main(int argc, char** argv){
     Parser pattern(pattern_name);
     pattern.concatStr();
     std::cout<<pattern.m_string.length()<<std::endl;
-    // std::string directory = "../../books/names.txt";
-    // std::string pattern = "English";
-    // std::string code = ("testing");
-
-    //std::cout << directory << ' ' << pattern <<' '<< code << std::endl;
 
     std::vector<std::string> names = {};
     names = GetNames(directory);
 
     std::string title = "bm_comp_" + code;
-    CompTool compTool(title,code);
+    // init comptool
+    CompTool compTool(title,pattern.m_string,code);
+    // Loop through each file to be searched
     for (auto fname : names) {
+        std::cout << fname << std::endl;
 
-        //std::cout << fname << std::endl;
-
-        BoyerMoore bmSearch(fname, pattern.m_string);
-
-        for (int j = 0; j < 5; j++){
-            bmSearch.concatStr();
-
-            bmSearch.bm(compTool);
-            bmSearch.clearStr();
-        }
+        BoyerMoore bmSearch(fname, pattern.m_string);             
+        bmSearch.concatStr();
+        bmSearch.bm(compTool);
+        bmSearch.clearStr();        
     }
 }

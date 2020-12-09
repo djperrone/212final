@@ -2,11 +2,10 @@
 
 
 BoyerMoore::BoyerMoore(std::string filename, std::string pattern)
-    :fname(filename),key(pattern) {
-
-}
+    :fname(filename),key(pattern) {}
 
 
+// Remove and elading or trailing whitespace
 void BoyerMoore::Strip(std::string& line){
 
     if(line[0]==' ' || line[line.length()-1]==' '){
@@ -29,34 +28,28 @@ void BoyerMoore::Strip(std::string& line){
                     }
                 }
             }
-            //std::cout<<"after: "<<line<<"*"<<std::endl;
+            
     }
 }
 
-// Concatenate entire file into one string
+// Concatenate entire text file into one string
 void BoyerMoore::concatStr() {
 
     std::ifstream inFile;
     inFile.open(fname);
     std::string line;
-    while (std::getline(inFile, line)) {
-        //std::cout<<line<<std::endl;
-        // if(fname=="../../books/50000Chars.txt"){
-        //     std::cout<<line<<std::endl;
-        //     return;
-        // }
-
+    // loop through each line of file
+    while (std::getline(inFile, line)) { 
+        // skip empty lines
         if (line == "")
             continue;
-    Strip(line);
+        Strip(line);
 
         line.append(" ");
         m_string.append(line);
     }
-
     inFile.close();
 }
-
 
 void BoyerMoore::makeBadTable(const std::string& key){
     //given a mismatched character from the text, the shift distance that would align the rightmost
@@ -66,7 +59,6 @@ void BoyerMoore::makeBadTable(const std::string& key){
     for(int i = 0; i < key.length(); i++){
         badCharacterTable[key[i]] = key.length() - 1- i;
     }
-
     badCharacterTable[key[key.length()-1]] = 1;
 
     ///print map//////
@@ -77,7 +69,6 @@ void BoyerMoore::makeBadTable(const std::string& key){
     //     std::cout<<it->first<<' '<<it->second<<std::endl;
     // }
     // std::cout << "-------------------------------\n";
-
 }
 
 void BoyerMoore::makeGoodArrayH(const std::string& key){
@@ -232,7 +223,7 @@ void BoyerMoore::bm(CompTool& tool){
     makeGoodArrayL(key);
     makeGoodArrayH(key);
 
-    tool.SetBookName(std::to_string(m_string.length()));    
+    tool.SetTextLen(std::to_string(m_string.length()));    
     //loop through while the pattern is longer than the text
     tool.outterComps+=1;
     while(align < m_string.length()){
@@ -245,8 +236,7 @@ void BoyerMoore::bm(CompTool& tool){
             if(i == 0){
                 //print where we found a pattern
                 //std::cout<<"Pattern found at index "<<align-(key.length()-1)<<std::endl;
-                tool.patterns_found+=1;
-               // patterns++;
+                tool.patterns_found+=1;               
                 break;
             }
             //decrement i
@@ -254,19 +244,16 @@ void BoyerMoore::bm(CompTool& tool){
         }
 
         //if i is 0 make a shift since we want more than just the first occurence
-        if (i == 0){
-            //tool.fPositives+=1;
-
+        if (i == 0){        
             align = align + key.length();
         }
         //if there isnt a match get a shift
-        else{
-            //tool.fPositives+=1;
-
+        else{       
             align = align + getShift(i, m_string[align - key.length() + i + 1]);
         }
         
     }
+    // calc total comps, write results to file, reset
     tool.totalComps = tool.innerComps + tool.outterComps;	 
     tool.WriteCSV();
     std::cout<<tool.patterns_found<<" found"<<std::endl;
