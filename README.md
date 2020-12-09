@@ -1,10 +1,10 @@
 # CSC 212 Final Project
 
-How To Run the Code:<br>
-Download repo, go into demo folder or any of the boyermoore,rabinkarp,bruteforce folders <br>
-compile command : g++ -O3 -std=c++17 main.cpp alg.cpp (where alg is the name of the algorithm cpp file) -o ex <br>
-Run Command: <./ex> <../../books/names.txt> <../../patterns/compliment.txt> (or whatever pattern you want to search) <\name of csv output file> <br>
-Our program will read through any text files in the names.txt file and search them for the pattern found in <"pattern/<\somepat>.txt"<br>
+### How To Run the Code:<br>
+- Download repo, go into demo folder or any of the boyermoore,rabinkarp,bruteforce folders <br>
+- compile command : g++ -O3 -std=c++17 main.cpp alg.cpp (where alg is the name of the algorithm cpp file) -o ex <br>
+- Run Command: <./ex> <../../books/names.txt> <../../patterns/compliment.txt> (or whatever pattern you want to search) <\name of csv output file> <br>
+- Our program will read through any text files in the names.txt file and search them for the pattern found in <"pattern/<\somepat>.txt"<br>
 
 ex:  g++ -O3 -std=c++17 main.cpp bm.cpp -o b ==> ./b ../../books/names.txt ../../patterns/compliment.txt ex1 <br>
 
