@@ -65,6 +65,6 @@ void Parser::concatStr() {
         m_string.append(line);
     }
      //if(numlines>1)
-         m_string.erase(m_string.length()-1);
+    m_string.erase(m_string.length()-1);
     inFile.close();
 }
