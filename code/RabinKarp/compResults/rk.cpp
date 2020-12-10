@@ -138,6 +138,6 @@ void RabinKarp::rk(CompTool& tool){
     tool.WriteCSV();
     tool.Reset();
 
-    std::cout << foundTimes <<" patterns found "<<std::endl;
+    //std::cout << foundTimes <<" patterns found "<<std::endl;
 
 }
