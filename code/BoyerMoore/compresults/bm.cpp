@@ -225,8 +225,9 @@ void BoyerMoore::bm(CompTool& tool){
 
     tool.SetTextLen(std::to_string(m_string.length()));    
     //loop through while the pattern is longer than the text
-    tool.outterComps+=1;
+    
     while(align < m_string.length()){
+        tool.outterComps+=1;
         //iterator
         int i = key.length() - 1;
         while(key[i] == m_string[align - key.length() + i + 1]){
