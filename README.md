@@ -10,7 +10,7 @@
 - Our test cases can be found in the books/phrases.txt file or in the patterns folder
 - output csv files will be named alg_tool_name.csv
 
-ex:  g++ -O3 -std=c++17 main.cpp bm.cpp -o b ==> ./b ../../books/names.txt ../../patterns/compliment.txt ex1 <br>
+ex:  g++ -O3 -std=c++17 main.cpp bm.cpp -o b ==> ./b ../../books/names.txt ../../patterns/compliment.txt ex1 <br> will output bm_comp_ex1 or bm_timer_ex1 depending on folder
 
 
 ### Project Ideas
