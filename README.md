@@ -7,7 +7,7 @@
 - Run Command: <./ex> <../../books/names.txt> <../../patterns/compliment.txt> (or whatever pattern you want to search) <\name of csv output file> <br>
 - Our program will read through any text files in the names.txt file and search them for the pattern found in <"pattern/<\somepat>.txt"<br>
 - NOTE: Patterns must be saved in a text file on one line, copying and pasting an entire paragraph to search will not work
-- Our test cases can be found in the books/phrases.txt file
+- Our test cases can be found in the books/phrases.txt file or in the patterns folder
 - output csv files will be named alg_tool_name.csv
 
 ex:  g++ -O3 -std=c++17 main.cpp bm.cpp -o b ==> ./b ../../books/names.txt ../../patterns/compliment.txt ex1 <br>
