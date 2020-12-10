@@ -256,6 +256,6 @@ void BoyerMoore::bm(CompTool& tool){
     // calc total comps, write results to file, reset
     tool.totalComps = tool.innerComps + tool.outterComps;	 
     tool.WriteCSV();
-    std::cout<<tool.patterns_found<<" found"<<std::endl;
+    //std::cout<<tool.patterns_found<<" found"<<std::endl;
     tool.Reset();
 }
