@@ -47,7 +47,7 @@ public:
 	void WriteCSV() {
 		std::ofstream oStream;
 		oStream.open(m_outFile, std::ios::app);
-		oStream << m_inFile <<m_pattern.length()<<  ","<<innerComps<<","<<outterComps<<"," << totalComps << ","<<patterns_found<<"," << fPositives << std::endl;
+		oStream << m_inFile<<"," <<m_pattern.length()<<  ","<<innerComps<<","<<outterComps<<"," << totalComps << ","<<patterns_found<<"," << fPositives << std::endl;
 		oStream.close();
 	}	
 };
