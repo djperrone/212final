@@ -123,6 +123,6 @@ void RabinKarp::rk(Timer& timer) {
     timer.WriteCSV();
     timer.Reset();
     clearStr();
-    std::cout << foundTimes << " patterns found " << std::endl;
-    foundTimes=0;
+    //std::cout << foundTimes << " patterns found " << std::endl;
+    //foundTimes=0;
 }
