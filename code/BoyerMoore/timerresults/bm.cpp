@@ -264,5 +264,5 @@ void BoyerMoore::bm(Timer& timer){
     timer.WriteCSV();
     timer.Reset();
     clearStr();
-    std::cout<<"found "<<localpats<<std::endl;    
+    //std::cout<<"found "<<localpats<<std::endl;    
 }
