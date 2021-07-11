@@ -1,5 +1,7 @@
 # CSC 212 Final Project
 
+#### A team project that compares the performance of three string search algorithms. The Booyer-Moore, Rabin-Karp, and Brute Force algorithms are benchmarked using timer tools and comparison counters written in C++. By David Perrone and Raechel Griffin
+
 ### How To Run the Code:<br>
 - Download repo, go into any of the boyermoore,rabinkarp,bruteforce folders <br>
 - To use timer tool, use timerresults folder, comparison tool is in compresults folder <br>
